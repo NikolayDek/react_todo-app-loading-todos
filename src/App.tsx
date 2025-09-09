@@ -62,7 +62,7 @@ export const App: React.FC = () => {
             type="button"
             className={classNames(
               'todoapp__toggle-all',
-              todos?.every(todo => todo.completed) ? 'active' : '',
+              todos.every(todo => todo.completed) ? 'active' : '',
             )}
             data-cy="ToggleAllButton"
           />
@@ -80,7 +80,11 @@ export const App: React.FC = () => {
         </header>
 
         {filteredTodos.map(todo => (
-          <section className="todoapp__main" data-cy="TodoList" key={todo.id}>
+          <section 
+            className="todoapp__main" 
+            data-cy="TodoList"
+            key={todo.id}
+          >
             {/* This is a completed todo */}
             <div
               data-cy="Todo"
@@ -109,10 +113,10 @@ export const App: React.FC = () => {
               </button>
 
               {/* overlay will cover the todo while it is being deleted or updated */}
-              {/* <div data-cy="TodoLoader" className="modal overlay">
+              <div data-cy="TodoLoader" className="modal overlay">
                 <div className="modal-background has-background-white-ter" />
                 <div className="loader" />
-              </div> */}
+              </div>
             </div>
 
             {/* This todo is in loadind state */}
@@ -142,8 +146,8 @@ export const App: React.FC = () => {
           </section>
         ))}
 
-        {/* This todo is being edited */}
-        {/* <div data-cy="Todo" className="todo">
+          {/* This todo is being edited */}
+          {/* <div data-cy="Todo" className="todo">
             <label className="todo__status-label">
               <input
                 data-cy="TodoStatus"
@@ -152,27 +156,27 @@ export const App: React.FC = () => {
               />
             </label> */}
 
-        {/* This form is shown instead of the title and remove button */}
-        {/* <form>
-              <input
-                data-cy="TodoTitleField"
-                type="text"
-                className="todo__title-field"
-                placeholder="Empty todo will be deleted"
-                value="Todo is being edited now"
-              />
-            </form>
+          {/* This form is shown instead of the title and remove button */}
+          {/* <form>
+            <input
+              data-cy="TodoTitleField"
+              type="text"
+              className="todo__title-field"
+              placeholder="Empty todo will be deleted"
+              value="Todo is being edited now"
+            />
+          </form>
 
-            <div data-cy="TodoLoader" className="modal overlay">
-              <div className="modal-background has-background-white-ter" />
-              <div className="loader" />
-            </div>
-          </div> */}
+          <div data-cy="TodoLoader" className="modal overlayb">
+            <div className="modal-background has-background-white-ter" />
+            <div className="loader" />
+          </div>
+        </div> */}
 
         {/* Hide the footer if there are no todos */}
-        {filteredTodos && (
+        {todos.length && (
           <footer className="todoapp__footer" data-cy="Footer">
-            <span className="todo-count" data-cy="TodosCounter">
+           <span className="todo-count" data-cy="TodosCounter">
               {itemsLeft} items left
             </span>
 
